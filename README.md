@@ -39,7 +39,13 @@ UpSignOn.addButtonContent(UpSignOnButton, protocolURI, {});
 require_once __DIR__ . 'vendor/autoload.php';
 use upsignon;
 
-echo("<script type='text/javascript'>"+getUpSignOnJSScript()+"</script>");
+echo("<script type='text/javascript'>" . getUpSignOnJSScript() . "</script>");
+```
+
+Another function is exposed to build the button link:
+
+```php
+echo(getUpSignOnLink("https://example.com/upsignon", "myButton", "optionalRandomConnectionToken"));
 ```
 
 ## Licence
