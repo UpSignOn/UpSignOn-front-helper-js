@@ -2,7 +2,18 @@
 var UpSignOn = (function() {
   var UPSIGNON_GREEN = "rgb(0, 171, 169)";
   var UPSIGNON_DEEP_LINK = "upsignon://";
-  var translations = { "fr": "Connexion confidentielle", "es": "Conexión confidencial", "en": "Confidential connection" }
+  var translations = {
+  "confidentialConnection": {
+    "fr": "Connexion confidentielle",
+    "es": "Conexión confidencial",
+    "en": "Confidential connection"
+  },
+  "download": {
+    "fr": "Télécharger l'application UpSignOn",
+    "es": "Descargar la aplicación UpSignOn",
+    "en": "Download the UpSignOn app"
+  }
+}
 ;
   var getProtocolURI = function(request) {
     var protocolURI = UPSIGNON_DEEP_LINK + "protocol/?url="+encodeURIComponent(request.url)+"&buttonId="+encodeURIComponent(request.buttonId);
@@ -16,7 +27,11 @@ var UpSignOn = (function() {
   };
   var getButtonText = function() {
     var lang = navigator.language || navigator.userLanguage;
-    return translations[lang.substring(0,2)] || translations['en'];
+    return translations.confidentialConnection[lang.substring(0,2)] || translations.confidentialConnection['en'];
+  }
+  var getDownloadText = function() {
+    var lang = navigator.language || navigator.userLanguage;
+    return translations.download[lang.substring(0,2)] || translations.download['en'];
   }
   var addButtonContent = function(buttonContainer, protocolURI, uiConfig) {
     var linkElement = document.createElement("a");
@@ -50,7 +65,7 @@ var UpSignOn = (function() {
     buttonContainer.appendChild(linkElement);
 
     var websiteLinkNode = document.createElement("a");
-    websiteLinkNode.innerText = "Je n'ai pas encore l'appli, je clique ici !"; // TODO
+    websiteLinkNode.innerText = getDownloadText();
     websiteLinkNode.target = "_blank";
     websiteLinkNode.href = 'https://upsignon.eu';
     buttonContainer.appendChild(websiteLinkNode);
@@ -72,6 +87,7 @@ var UpSignOn = (function() {
     getProtocolURI: getProtocolURI,
     getSVGLogo: getSVGLogo,
     getButtonText: getButtonText,
+    getDownloadText: getDownloadText,
     color: UPSIGNON_GREEN
   };
 })();

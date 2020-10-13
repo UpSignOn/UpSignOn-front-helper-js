@@ -8,10 +8,11 @@ The script sets the `UpSignOn` variable which exposes [this API](module.d.ts).
 - `changeText`: replaces the text part of the previous rendered button with some other HTML content
 - `getProtocolURI`: computes the deep-link of the button
 
-For case where you need to do custom things, we also expose the following internal methods
+For cases where you need to do custom things, we also expose the following internal methods
 
 - `getSVGLogo`: returns the logo as an svg string
 - `getButtonText`: returns the "Confidential connexion" translation in the user's language
+- `getDownloadText`: returns the "Download the UpSignOn app" translation in the user's language
 - `color`: returns the UpSignOn main color 'rgb(0, 171, 169)'
 
 ## Licence

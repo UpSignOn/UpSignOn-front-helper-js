@@ -17,5 +17,6 @@ declare const UpSignOn: {
   getProtocolURI: (request: { url: string; buttonId: string; connectionToken?: string }) => string;
   getSVGLogo: (width: number) => string;
   getButtonText: () => string;
+  getDownloadText: () => string;
   color: string;
 };
