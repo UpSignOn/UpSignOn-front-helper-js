@@ -1,0 +1,13 @@
+{
+  "name": "UpSignOn/UpSignOn-front-helper-js",
+  "description": "Helper for front UpSignOn integration",
+  "version": "1.0.0",
+  "type": "library",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "UpSignOn": "/"
+    }
+  },
+  "require": {}
+}
