@@ -37,7 +37,7 @@ UpSignOn.addButtonContent(UpSignOnButton, protocolURI, {});
 <?php
 
 require_once __DIR__ . 'vendor/autoload.php';
-use upsignon\upsignon-front-helper-js;
+use upsignon;
 
 echo("<script type='text/javascript'>"+getUpSignOnJSScript()+"</script>");
 ```
